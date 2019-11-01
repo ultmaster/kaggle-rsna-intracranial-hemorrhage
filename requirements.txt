@@ -1,0 +1,5 @@
+pandas
+tqdm
+pydicom
+albumentations==0.3
+pretrainedmodels

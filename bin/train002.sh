@@ -1,4 +1,4 @@
-model=model002
+model=model001
 gpu=1
 fold=1
 conf=./conf/${model}.py

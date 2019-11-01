@@ -245,7 +245,7 @@ def calc_auc(targets, outputs):
 if __name__ == '__main__':
 
     torch.backends.cudnn.benchmark = True
-    torch.backends.cudnn.deterministic = True
+    # torch.backends.cudnn.deterministic = True
 
     try:
         main()

@@ -1,6 +1,6 @@
 model=model001
-gpu=0
-fold=0
+gpu=3
+fold=3
 ep=2
 tta=5
 clip=1e-6

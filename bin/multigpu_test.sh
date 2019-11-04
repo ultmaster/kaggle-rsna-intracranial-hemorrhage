@@ -1,4 +1,4 @@
-model=model001
+model=model001_large_batch
 fold=0
 conf=./conf/${model}.py
 

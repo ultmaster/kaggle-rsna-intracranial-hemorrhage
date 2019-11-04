@@ -3,3 +3,5 @@ tqdm
 pydicom
 albumentations==0.3
 pretrainedmodels
+scikit-learn
+addict

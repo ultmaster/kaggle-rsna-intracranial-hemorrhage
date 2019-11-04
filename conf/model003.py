@@ -1,4 +1,4 @@
-workdir = './model/model001'
+workdir = './model/model003'
 seed = 20
 apex = True
 

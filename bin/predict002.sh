@@ -1,4 +1,4 @@
-model=model001
+model=$1
 gpu=1
 fold=1
 ep=2

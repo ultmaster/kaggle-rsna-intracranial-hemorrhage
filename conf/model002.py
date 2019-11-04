@@ -6,8 +6,8 @@ n_fold = 5
 epoch = 3
 resume_from = None
 
-batch_size = 192
-num_workers = 4
+batch_size = 384
+num_workers = 16
 imgsize = (512, 512) #(height, width)
 
 loss = dict(
@@ -18,7 +18,7 @@ loss = dict(
 optim = dict(
     name='Adam',
     params=dict(
-        lr=1e-4,
+        lr=3e-4,
     ),
 )
 
@@ -32,7 +32,7 @@ scheduler = dict(
     name='MultiStepLR',
     params=dict(
         milestones=[1,2],
-        gamma=2/3,
+        gamma=1/3,
     ),
 )
 

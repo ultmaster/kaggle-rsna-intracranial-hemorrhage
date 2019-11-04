@@ -60,10 +60,7 @@ def main():
     log(f'acc: {cfg.data.train.n_grad_acc}')
 
     model = factory.get_model(cfg)
-    if cfg.gpu is None:
-        model = nn.DataParallel(model).cuda()
-    else:
-        model.cuda()
+    model.cuda()
 
     if cfg.mode == 'train':
         train(cfg, model)
@@ -76,8 +73,8 @@ def main():
 def test(cfg, model):
     assert cfg.output
     util.load_model(cfg.snapshot, model)
-    if cfg.gpu is None:
-        model = nn.DataParallel(model).cuda()
+    # if cfg.gpu is None:
+    #     model = nn.DataParallel(model).cuda()
     loader_test = factory.get_dataloader(cfg.data.test)
     with torch.no_grad():
         results = [run_nn(cfg.data.test, 'test', model, loader_test) for i in range(cfg.n_tta)]
@@ -90,8 +87,8 @@ def valid(cfg, model):
     assert cfg.output
     criterion = factory.get_loss(cfg)
     util.load_model(cfg.snapshot, model)
-    if cfg.gpu is None:
-        model = nn.DataParallel(model).cuda()
+    # if cfg.gpu is None:
+    #     model = nn.DataParallel(model).cuda()
     loader_valid = factory.get_dataloader(cfg.data.valid, [cfg.fold])
     with torch.no_grad():
         results = [run_nn(cfg.data.valid, 'valid', model, loader_valid, criterion=criterion) for i in range(cfg.n_tta)]
@@ -130,6 +127,8 @@ def train(cfg, model):
     log('apex %s' % cfg.apex)
     if cfg.apex:
         amp.initialize(model, optim, opt_level='O1')
+    if cfg.gpu is None:
+        model = nn.DataParallel(model)
 
     for epoch in range(best['epoch']+1, cfg.epoch):
 

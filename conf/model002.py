@@ -18,7 +18,7 @@ loss = dict(
 optim = dict(
     name='Adam',
     params=dict(
-        lr=6e-5,
+        lr=1e-4,
     ),
 )
 

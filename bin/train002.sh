@@ -1,5 +1,5 @@
 model=$1
-gpu=1
+gpu=$2
 fold=1
 conf=./conf/${model}.py
 

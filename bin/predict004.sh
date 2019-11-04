@@ -1,5 +1,5 @@
 model=$1
-gpu=3
+gpu=$2
 fold=3
 ep=2
 tta=5
